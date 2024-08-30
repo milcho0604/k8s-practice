@@ -36,8 +36,9 @@ jobs:
         env:
           REGISTRY: 346903264902.dkr.ecr.ap-northeast-2.amazonaws.com
           REPOSITORY: milcho-ordersystem
+          # dockerfile이 현재 위치가 아니기 때문에 폴더경로 적어서 명시
         run: |
-          docker build -t $REGISTRY/REPOSITORY:latest \
+          docker build -t $REGISTRY/$REPOSITORY:latest \
           -f ./ordersystem/Dockerfile  ./ordersystem \
           docker push
           
