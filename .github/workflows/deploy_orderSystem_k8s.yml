@@ -39,7 +39,7 @@ jobs:
           # dockerfile이 현재 위치가 아니기 때문에 폴더경로 적어서 명시
         run: |
           docker build -t $REGISTRY/$REPOSITORY:latest \
-          -f ./orderSystem/Dockerfile  ./orderSystem
+          -f ./ordersystem/Dockerfile  ./orderSystem
           docker push
           
           
