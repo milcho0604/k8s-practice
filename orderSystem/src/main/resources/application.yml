@@ -16,7 +16,7 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${DB_HOST}:3306/order_system
+    url: jdbc:mariadb://${DB_HOST}:3306/ordersystem
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
     # spring에서 db로의 커넥션 개수 제한
