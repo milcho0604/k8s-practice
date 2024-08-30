@@ -1,0 +1,28 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ordersystem-ingress
+  namespace: milcho  # Ingress의 namespace 설정
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # nginx.ingress.kubernetes.io/rewrite-target: /$1 # 첫번째 prefix제거후 endpoint 전달
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    
+spec:
+  tls:
+  - hosts:
+    - "server.milcho0604.store"
+    secretName: milcho-com-tls
+  rules:
+    - host: server.milcho0604.store
+      http: 
+        paths:
+          # - path: /product-service/(.*) msa에서는 필요
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: ordersystem-service
+                port: 
+                  number: 80
