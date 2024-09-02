@@ -14,7 +14,6 @@ spec:
       - http01:
           ingress:
             class: nginx
-            
 # 3. Certificate 생성
 ---
 apiVersion: cert-manager.io/v1
